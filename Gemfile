@@ -37,10 +37,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 # Amazon web services
-gem 'aws-sdk'
+gem 'aws-sdk', '<2.0'
 
 # Images
 gem 'paperclip'
+
+# Tagging
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

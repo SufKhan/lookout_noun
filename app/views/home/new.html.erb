@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lookout Internal Noun Project</title>
+</head>
+<body>
+<div id="logo-header"><img src="http://i.imgur.com/4ZjtpwK.png" alt="lookout logo">
+</div>
+
+<div id="search-box"><h1>SEARCH GRAPHICS</h1>
+  <%= form_tag("/search", method: "post") do %>
+    <%= text_field_tag('search-field', params['search-field']) %><br>
+    <ul>
+      <li>
+        <%= check_box_tag(:icon, '1', checked: 'checked') %>
+        <%= label_tag(:icon, 'Icons') %>
+      </li>
+
+      <li>
+        <%= check_box_tag(:illustration) %>
+        <%= label_tag(:illustration, 'Illustrations') %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+</body>
+</html>

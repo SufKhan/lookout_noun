@@ -43,7 +43,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => 'lookout-inp',
+      :bucket => 'lookout-internal-noun',
       :s3_credentials => "#{Rails.root}/config/aws.yml",
     }
   }
