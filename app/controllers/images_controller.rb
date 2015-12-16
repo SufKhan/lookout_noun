@@ -62,19 +62,19 @@ class ImagesController < ApplicationController
   end
 
   def download
-    data = open(@image.image.to_s)
+    data = open(@image.image.url)
 
     send_data data.read,
               filename: "#{@image.name}.svg",
               type: 'image/svg'
   end
 
+  # ideally this should just use imagemagick, but nothing was working, so
+  # using command line tools
   def download_png
-    mini_image = MiniMagick::Image.open(@image.image.url)
-    mini_image.format 'png'
-    mini_image.resize '500x500'
-    puts mini_image.valid?
-    send_data mini_image,
+    png_data = `curl #{@image.image.url} | rsvg-convert -h 500 -w 500 -f png`
+
+    send_data png_data,
               filename: "#{@image.name}.png",
               type: 'image/png'
   end

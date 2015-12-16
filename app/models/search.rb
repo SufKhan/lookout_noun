@@ -8,7 +8,8 @@ class Search
   end
 
   def find_images
-    Image.tagged_with(@keywords, :wild => true, :any => true)
+    results = Image.tagged_with(@keywords, :wild => true, :any => true)
       .select { |image| @kinds.include? image.kind }
+    results.empty? ? Image.all.select { |image| @kinds.include? image.kind } : results
   end
 end
