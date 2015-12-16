@@ -1,0 +1,38 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html{
+  font-family: 'avenir',helvetica, sans-serif;
+}
+
+#container{
+  width: 90%;
+  margin: 5% 0 0 5%;
+}
+#logo{
+  margin: 24px 0 0 5%;
+}
+
+#container a{
+  cursor: auto;
+  background-color: white;
+}
+
+.box{
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  transition: all .3s ease;
+  float: left;
+}
+.box img{
+  padding: 25px;
+}
+.box:hover{
+  opacity: 0.3;
+}

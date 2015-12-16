@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   post 'search', to: 'searches#show'
 
+  get 'images/:id/download', to: 'images#download'
+  get 'images/:id/download_png', to: 'images#download_png'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

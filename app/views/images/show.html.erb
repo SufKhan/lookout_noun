@@ -1,22 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div id="container">
+  <h1><%= @image.name %></h1>
+  <div id="result"><%= image_tag(@image.image.url, size:"500x500") %></div>
+  <section id="downloadsection">
+    <nav class="cl-effect-15">
+      <%= link_to 'PNG', {controller: 'images', action: 'download_png'}, {'data-hover' => 'PNG'} %>
+      <%= link_to 'SVG', {controller: 'images', action: 'download'}, {'data-hover' => 'SVG'} %>
+    </nav>
+  </section>
+</div>
 
-<p> <%= @image.inspect %> </p>
 
-<p>
-  <%= image_tag(@image.image.url, size:"300x300") %><br/>
-  <%= image_tag(@image.image.url, size:"100x100") %><br/>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @image.name %>
-</p>
-
-<p>
-  <%= @image.tag_list.inspect %>
-  <%= Image.tagged_with('account').each { |x| x.inspect  } %>
-  <%= Image.tagged_with('acc', :wild => true, :any => true).each { |x| x.inspect  } %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>

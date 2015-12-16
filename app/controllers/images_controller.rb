@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :download, :download_png]
 
   # GET /images
   # GET /images.json
@@ -59,6 +59,24 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    data = open(@image.image.to_s)
+
+    send_data data.read,
+              filename: "#{@image.name}.svg",
+              type: 'image/svg'
+  end
+
+  def download_png
+    mini_image = MiniMagick::Image.open(@image.image.url)
+    mini_image.format 'png'
+    mini_image.resize '500x500'
+    puts mini_image.valid?
+    send_data mini_image,
+              filename: "#{@image.name}.png",
+              type: 'image/png'
   end
 
   private

@@ -1,0 +1,45 @@
+// Place all the styles related to the Images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+  font-size: 2.2em;
+  font-weight: 900;
+}
+
+#result{
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  float: left;
+}
+
+#downloadsection{
+  display: inline-block;
+  margin:8% 0 0 5%;
+}
+#downloadsection nav{
+  margin-left: 70px;
+  font-weight: bold;
+}
+#downloadsection nav a{
+  font-size: 2.2em;
+}
+.btn {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 22px;
+  background: #00BFA7;
+  padding: 20px 180px 20px 180px;
+  text-decoration: none;
+  border: none;
+  margin-top: 3%;
+}
+
+.btn:hover {
+  background: #34b384;
+  text-decoration: none;
+}

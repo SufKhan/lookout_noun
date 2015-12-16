@@ -1,9 +1,10 @@
 class Search
+  attr_reader :query
   def initialize(query, kinds)
+    @query = query
     @keywords = query.split(' ').map { |word| word.strip}
     @kinds = Image::VALID_KINDS.select { |kind| kinds[kind] }
     @kinds = Image::VALID_KINDS if @kinds.empty?
-    find_images.each {|x| puts x.inspect}
   end
 
   def find_images
